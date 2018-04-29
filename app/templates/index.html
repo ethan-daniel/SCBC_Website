@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div align="center" class="container" id="submit-form">
+    <form action="" method="post" name="submit" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-md-3 form-description">
+                {{ form.place.label }}
+            </div>
+            <div class="col-md-9 form-text-box">
+                {{ form.place(id="search_place", size=75) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 form-description">
+                {{ form.name.label }}
+            </div>
+            <div class="col-md-9 form-text-box">
+                {{ form.name(id="search_place", size=75) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 form-description">
+                {{ form.description.label }}
+            </div>
+            <div class="col-md-9 form-text-box">
+                {{ form.description(size=75) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 form-description">
+                {{ form.type.label }}
+            </div>
+            <div class="col-md-9 form-text-box">
+                {{ form.type }}
+            </div>
+        </div>
+        <div class="row">
+        <div class="input col-md-12 text">
+            {{ form.submit(size=64) }}
+        </div>
+        </div>
+    </form>
+</div>
+<script>
+    function startPlacesSearch() {
+        var input = document.getElementById("search_place");
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1qQAV5fK_i_2j_zHBdfS9tjfJpUJtESQ&libraries=places&callback=startPlacesSearch"></script>
+</body>
+</html>
